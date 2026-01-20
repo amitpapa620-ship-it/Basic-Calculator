@@ -164,9 +164,9 @@ buttons.forEach(button => {
 
 document.addEventListener("keydown", (event) => {
     
-    if (["Enter", "Escape"].includes(event.key)) {
+    
         event.preventDefault();
-    }
+    
     if (event.key === "Enter") {
          // Prevents accidental form submissions
         const equalsBtn = document.getElementById("equals");
