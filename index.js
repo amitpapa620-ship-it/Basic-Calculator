@@ -98,10 +98,10 @@ function calculate(expression) {
             values.push(val / 100);
 
             if (
-                i + 1 < expr.length &&
-                (/\d/.test(expr[i + 1]) || expr[i + 1] === '(')
+                i + 1 < expression.length &&
+                (/\d/.test(expression[i + 1]) || expression[i + 1] === '(')
             ) {
-                operators.push('*');
+                ops.push('*');
             }
         }
 
@@ -163,7 +163,10 @@ buttons.forEach(button => {
 });
 
 document.addEventListener("keydown", (event) => {
-   event.preventDefault();
+    
+    if (["Enter", "Escape"].includes(event.key)) {
+        event.preventDefault();
+    }
     if (event.key === "Enter") {
          // Prevents accidental form submissions
         const equalsBtn = document.getElementById("equals");
