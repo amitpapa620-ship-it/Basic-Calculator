@@ -96,7 +96,15 @@ function calculate(expression) {
         else if (ch === '%') {
             let val = values.pop();
             values.push(val / 100);
+
+            if (
+                i + 1 < expr.length &&
+                (/\d/.test(expr[i + 1]) || expr[i + 1] === '(')
+            ) {
+                operators.push('*');
+            }
         }
+
 
         else {
             while (ops.length && precedence(ops[ops.length-1]) >= precedence(ch)) {
